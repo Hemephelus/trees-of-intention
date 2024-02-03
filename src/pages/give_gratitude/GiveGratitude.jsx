@@ -5,8 +5,13 @@ import { useState } from "react";
 import TextInput from "../../components/TextInput";
 import ChatBubble from "../../components/ChatBubbles";
 import LatestBubble from "../../components/LatestBubble";
+import useStore from "../../stores/useStore";
+
+
 
 function Intention({intention = "slow-down"}) {
+
+  
   const intentions = {
     "slow-down": {
       prompt: "Take a Deep Breath",
