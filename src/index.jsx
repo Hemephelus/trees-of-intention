@@ -4,21 +4,29 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import React from "react";
 import SlowDown from "./pages/slow_down/SlowDown";
-import CompB from "./pages/CompB";
+import GiveGratitude from "./pages/give_gratitude/GiveGratitude";
+import Root from "./pages/root/Root";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Root />,
+    children:[
+      {
+        path: "",
+        element: <App />,
+      },
+      {
+        path: "slow-down",
+        element: <SlowDown />,
+      },
+      {
+        path: "give-gratitude",
+        element: <GiveGratitude />,
+      },
+    ]
   },
-  {
-    path: "slow-down",
-    element: <SlowDown />,
-  },
-  {
-    path: "clientB",
-    element: <CompB />,
-  },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));

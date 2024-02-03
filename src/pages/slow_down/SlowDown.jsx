@@ -2,7 +2,7 @@ import React from "react";
 import { supabase } from "../../utils/supabase";
 import { useEffect } from "react";
 import { useState } from "react";
-import TextInput from "./components/TextInput";
+import TextInput from "../../components/TextInput";
 
 function SlowDown() {
   const [messages, setMessages] = useState([])
@@ -17,7 +17,6 @@ function SlowDown() {
   }, [])
   
   useEffect(() => {
-    console.log(messages);
     const channelA = supabase
       .channel("schema-db-changes")
       .on(
@@ -49,14 +48,17 @@ function SlowDown() {
   
   // console.log(messages)
 
-  return <div className="h-[100dvh] bg-[#22092C] relative text-white">
-    {/* <p>{lol.new.message}</p> */}
+  return <div className="h-[100dvh] bg-[#22092C] relative text-white pri-font">
+     <p className="  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl flex flex-col items-center gap-2">
+      <span>Time To Reflect</span>
+      <span className="text-2xl">Take Your Time</span>
+      </p>
     { messages && <div>
       {
         messages.map((message) => <p>{message.message}</p>)
       }
     </div> }
-    <TextInput/>
+    <TextInput tableName={"toi-slow-down"}/>
   </div>;
 }
 

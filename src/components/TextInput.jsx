@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { IoMdSend } from "react-icons/io";
-import { supabase } from "../../../utils/supabase";
+import { supabase } from "../utils/supabase";
 
-function TextInput() {
+function TextInput({tableName}) {
   const [message, setMessage] = useState('')
 
   function handleChange(e){
     let newMessage = e.target.value
     setMessage(newMessage)
   }
+
   function uploadMessage(e) {
     e.preventDefault();
-    // Define the table where you want to post data
-    const tableName = "toi-slow-down";
-
+    if(message === '')return
     // Define the data you want to post
     const dataToPost = {
       message: message,
@@ -42,7 +41,7 @@ function TextInput() {
   return (
     <form
       action=""
-      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-[50%] grid gap-2 grid-cols-[1fr,auto] text-2xl pri-font"
+      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-[50%] grid gap-2 grid-cols-[1fr,auto] text-2xl "
       onSubmit={uploadMessage}
     >
       <input type="text" className="p-2 bg-[#872341] shadow-xl text-white" onChange={handleChange} value={message} />
