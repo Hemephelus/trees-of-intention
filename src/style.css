@@ -1,9 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.pri-font{
-    font-family: 'Macondo', cursive;
+.pri-font {
+  font-family: "Macondo", cursive;
+}
+
+/* Track */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+@keyframes anime-header {
+  0% {
+    transform: -translateX(1000px);
+    transform: scale(0);
+  }
+  100% {
+    transform: translateY(100px);
+    transform: -translateX(1000px);
+    transform: scale(1);
+  } 
+}
+
+/* The element to apply the animation to */
+.new-message {
+  animation-name: anime-header;
+  animation-duration: 1.5s;
 }

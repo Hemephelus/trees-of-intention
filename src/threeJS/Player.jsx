@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useAnimations, useFBX, useGLTF, meshBounds} from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
 import { useRapier, RigidBody, CapsuleCollider} from '@react-three/rapier'
-import { useFrame, useStore } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import useStore from '../stores/useStore'
 
@@ -104,20 +104,25 @@ const Player = () => {
 
             if(bodyPosition.y < 0 && bodyPosition.z < -2 && bodyPosition.x > 0)
             {
-            //    console.log('slowdown')
+               setSlowdown(true)
+               setGratitude(false)
+                setResponsibility(false)
             }
 
             if(bodyPosition.y < 1 && bodyPosition.z > 3 && bodyPosition.x < 4)
             {
-            //    console.log('gratitude')
+                setGratitude(true)
+                setSlowdown(false)
+                setResponsibility(false)
             }
 
             if(bodyPosition.y < 1 && bodyPosition.z > 3 && bodyPosition.x > 5)
             {
-            //    console.log('responsibility')
+               setResponsibility(true)
+                setGratitude(false)
+                setSlowdown(false)
             }
 
-    
             
             {
 
