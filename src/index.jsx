@@ -6,6 +6,7 @@ import React from "react";
 import SlowDown from "./pages/slow_down/SlowDown";
 import GiveGratitude from "./pages/give_gratitude/GiveGratitude";
 import Root from "./pages/root/Root";
+import Intention from "./pages/give_gratitude/GiveGratitude";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +19,15 @@ const router = createBrowserRouter([
       },
       {
         path: "slow-down",
-        element: <SlowDown />,
+        element: <Intention/>,
       },
       {
         path: "give-gratitude",
-        element: <GiveGratitude />,
+        element: <Intention/>,
+      },
+      {
+        path: "take-responsibility",
+        element: <Intention/>,
       },
     ]
   },
