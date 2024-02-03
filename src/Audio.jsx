@@ -13,8 +13,14 @@ const AudioComp = () => {
       return () => {}
     }, [])
 
+    const removeAudioRoot = () => {
+    	const elem = document.getElementById('audio-root')
+    	elem.classList.remove('absolute')
+    }
+
+
     return (
-    	<div className='h-screen flex items-center justify-center absolute top-0' style={{width: '100vw'}}>
+    	<div className='h-screen flex items-center justify-center absolute top-0' style={{width: '100vw'}} id='audio-root'>
     		{
 	            !isAudioDecided &&
 	              <div className='flex flex-col p-8 bg-[#22092C] text-white rounded-md'>
@@ -22,8 +28,8 @@ const AudioComp = () => {
 	              	<p className='text-center text-xl pri-font my-1'>Welcome to the Garden of Intention</p>
 	                <p className='text-center text-lg pri-font my-1'>Would you like to play audio?</p>
 	                <div className='flex justify-center space-x-2 my-4'>
-	                	<button onClick={() => { audio.play(); setIsAudioDecided(true) }} className='bg-white rounded text-black p-1 hover:text-indigo-800 w-12 pri-font'>Yes</button>
-	                	<button onClick={() => setIsAudioDecided(true)} className='bg-white rounded text-black p-1 hover:text-indigo-800 w-12 pri-font'>No</button>
+	                	<button onClick={() => { audio.play(); setIsAudioDecided(true); removeAudioRoot() }} className='bg-white rounded text-black p-1 hover:text-indigo-800 w-12 pri-font'>Yes</button>
+	                	<button onClick={() => { setIsAudioDecided(true); removeAudioRoot() }} className='bg-white rounded text-black p-1 hover:text-indigo-800 w-12 pri-font'>No</button>
 	                </div>
 	              </div>
        		}

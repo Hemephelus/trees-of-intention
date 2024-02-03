@@ -14,7 +14,7 @@ const App = () => {
   const responsibility = useStore(state => state.responsibility)
 
 
-  const [intentions, setIntentions] = useState('slow-down')
+  const [intentions, setIntentions] = useState('')
 
   console.log(intentions)
 
@@ -54,7 +54,7 @@ const App = () => {
 
     <div className='absolute left-2 bottom-[100%] w-[50%] h-[5vh] top-2 rounded-[20px]'>
       {/* <div className='rounded-[30px]'> */}
-         <GiveGratitude intention={intentions} />
+         {intentions !== '' && <GiveGratitude intention={intentions} /> }
       {/* </div> */}
     </div>
   
