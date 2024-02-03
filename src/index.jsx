@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import React from "react";
-import CompA from "./components/CompA";
-import CompB from "./components/CompB";
+import SlowDown from "./pages/SlowDown/SlowDown";
+import CompB from "./pages/CompB";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +12,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "clientA",
-    element: <CompA />,
+    path: "slow-down",
+    element: <SlowDown />,
   },
   {
     path: "clientB",

@@ -1,5 +1,5 @@
 import React from "react";
-import { clientA } from "../utils/supabase";
+import { supabase } from "../utils/supabase";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -9,7 +9,7 @@ function CompB() {
   const [realNumber, setRealNumber] = useState(null);
 
   useEffect(() => {
-    const channelB = clientA.channel("room-1");
+    const channelB = supabase.channel("room-1");
 
     channelB.subscribe((status) => {
       // Wait for successful connection
@@ -28,7 +28,7 @@ function CompB() {
 
   useEffect(() => {
     // Join a room/topic. Can be anything except for 'realtime'.
-    const channelA = clientA.channel("room-1");
+    const channelA = supabase.channel("room-1");
 
     // Simple function to log any messages we receive
     function messageReceived(payload) {
@@ -42,9 +42,9 @@ function CompB() {
       .subscribe();
 
     return () => {
-      clientA.removeChannel(channelA);
+      supabase.removeChannel(channelA);
     };
-  }, [clientA, realNumber]);
+  }, [supabase, realNumber]);
 
   return (
     <div>
