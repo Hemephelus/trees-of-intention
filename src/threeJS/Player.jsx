@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useAnimations, useFBX, useGLTF, meshBounds} from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
 import { useRapier, RigidBody, CapsuleCollider} from '@react-three/rapier'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useStore } from '@react-three/fiber'
 import * as THREE from 'three'
+import useStore from '../stores/useStore'
 
 const Player = () => {
     const group = useRef()
@@ -17,7 +18,13 @@ const Player = () => {
     const [ smoothCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
     const [ smoothCameraTarget ] = useState(() => new THREE.Vector3())
 
+    const gratitude = useStore(state => state.gratitude)
+    const slowdown = useStore(state => state.slowdown)
+    const responsibility = useStore(state => state.responsibility)
 
+    const setGratitude = useStore(state => state.setGratitude)
+    const setSlowdown = useStore(state => state.setSlowdown)
+    const setResponsibility = useStore(state => state.setResponsibility)
   
 
     // const {animations: walking} = useFBX('animations/Walking.fbx')
@@ -152,7 +159,7 @@ const Player = () => {
                         castShadow
                         receiveShadow
                         geometry={nodes.Cube1337.geometry}
-                        material={materials["Black.025"]}
+                        material={`materials["Black.025"]}
                     />
                     <mesh
                         castShadow

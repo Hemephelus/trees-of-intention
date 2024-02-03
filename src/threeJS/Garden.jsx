@@ -10,6 +10,7 @@ import { Physics } from '@react-three/rapier'
 import { RigidBody } from '@react-three/rapier'
 import * as THREE from 'three'
 
+
 const Garden = () => {
  
     const {camera,gl} = useThree()

@@ -1,6 +1,9 @@
 import * as THREE from 'three'
-import { useGLTF, Text3D, useMatcapTexture } from '@react-three/drei'
+import { useGLTF, Text3D, useMatcapTexture, Html } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
+import GiveGratitude from '../pages/give_gratitude/GiveGratitude'
+import useStore from '../stores/useStore'
+
 
 
 
@@ -13,6 +16,8 @@ import { RigidBody } from '@react-three/rapier'
 export const Slowdown = () => {
     const { nodes, materials } = useGLTF('/models/tree1.gltf')
     const chair = useGLTF('/models/chair.gltf')
+
+    
 
 
     return (
@@ -59,6 +64,7 @@ export const Slowdown = () => {
         />
         </group>
       </RigidBody>
+
       </>
 
         
@@ -70,6 +76,7 @@ export const Gratitude = () => {
     const chair = useGLTF('/models/chair.gltf')
 
     return(
+      <>
       <RigidBody type='fixed' restitution={0} friction={1}>
         <group dispose={null}>
         <group position={[-5, -1, 3]} scale={0.97}>
@@ -115,6 +122,22 @@ export const Gratitude = () => {
   
       </group>
       </RigidBody>
+      <Html occlude
+          style={{
+            width: '100vw',
+            height: '100vh',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+
+          }}
+      >
+        {/* <GiveGratitude/> */}
+      </Html>
+      </>
+
+  
+  
 
     )
 }
