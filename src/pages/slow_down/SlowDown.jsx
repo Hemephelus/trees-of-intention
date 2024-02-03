@@ -1,8 +1,10 @@
 import React from "react";
 import { supabase } from "../../utils/supabase";
 import { useEffect } from "react";
+import { useState } from "react";
 
 function SlowDown() {
+  const [lol, setLol] = useState([])
   useEffect(() => {
     const channelA = supabase
       .channel("schema-db-changes")
@@ -13,7 +15,7 @@ function SlowDown() {
           schema: "public",
           table: "toi-slow-down",
         },
-        (payload) => console.log(payload)
+        (payload) => setLol(payload)
       )
       .subscribe();
 
@@ -21,7 +23,7 @@ function SlowDown() {
       supabase.removeChannel(channelA);
     };
   }, [supabase]);
-
+  console.log(lol);
   return <div>Slow Down</div>;
 }
 

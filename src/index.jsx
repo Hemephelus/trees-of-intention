@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import React from "react";
-import SlowDown from "./pages/SlowDown/SlowDown";
+import SlowDown from "./pages/slow_down/SlowDown";
 import CompB from "./pages/CompB";
 
 const router = createBrowserRouter([
